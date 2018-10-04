@@ -63,7 +63,9 @@ class App extends Component {
         }
       }).then(data => {
         console.log(data.response.groups[0].items)
-        let venueIds = data.response.groups[0].items.map(dataItem => dataItem.venue.id) 
+        let venueIds = data.response.groups[0].items.map(dataItem => {
+         return {"venueId" : dataItem.venue.id, "lat": dataItem.venue.location.lat, "long": dataItem.venue.location.lng }
+        }) 
         this.setState( {venues : venueIds } )
         return venueIds
       }).then(() => {console.log(this.state.venues)})
