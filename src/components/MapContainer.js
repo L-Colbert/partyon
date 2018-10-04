@@ -19,8 +19,8 @@ class MapContainer extends Component {
                         </select>
                     </div>
                     <div id="map" role="application">
-                        <img src={this.props.copyOfMapAtl} alt="map" />
-                        {/* <Map
+                        {/* <img src={this.props.copyOfMapAtl} alt="map" /> */}
+                        <Map
                             google={this.props.google}
                             initialCenter={{
                                 lat: 33.748995,
@@ -30,7 +30,7 @@ class MapContainer extends Component {
                             <Marker
                                 name={'test'}
                                 position={{ lat: 33.748995, lng: -84.387982 }} />
-                        </Map> */}
+                        </Map>
                     </div>
                 </div>
             </main >
