@@ -12,7 +12,7 @@ class App extends Component {
         { center: [33.748995, -84.387982] },
         { zoom: 12 }],
     nightSpots: [],
-    markers: []
+    // markers: []
   }
   
   loadStaticMap = () => {
@@ -94,8 +94,8 @@ class App extends Component {
           defaultMapProps={this.state.defaultMapProps}
           copyOfMapAtl={this.state.staticMap}
           nightSpots={this.state.nightSpots}
-          onReady={this.addMarkers}
-          markers={this.state.markers}
+          // onReady={this.addMarkers}
+          // markers={this.state.markers}
         />
       </div>
     );

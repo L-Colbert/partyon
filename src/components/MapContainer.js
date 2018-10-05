@@ -6,7 +6,23 @@ import '../css/App.css'
 
 
 class MapContainer extends Component {
+    //code from https://www.npmjs.com/package/google-maps-react
+    state = {
+        showingInfoWindow: false,
+        activeMarker: {},
+        selectedPlace: {},
+    };
+
+    openInfoWindow = (props, marker, e) =>
+    this.setState({
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true
+    });
+    
     render() {
+        console.log(this.state.selectedPlace)
+        const defaultMapProps = this.props.defaultMapProps
         const [lat, lng] = this.props.defaultMapProps[0].center
         const zoom = this.props.defaultMapProps[1].zoom
 
@@ -30,8 +46,23 @@ class MapContainer extends Component {
                             zoom={zoom}
                         >
                             {this.props.nightSpots.map(spot => (
-                                <Marker key={spot.venueId} position={{ lat: spot.lat, lng: spot.lng }} />
+                                <Marker
+                                    name={spot.name}
+                                    key={spot.venueId}
+                                    position={{ lat: spot.lat, lng: spot.lng }}
+                                    onClick={this.openInfoWindow}
+                                />
                             ))}
+                            <InfoWindow
+                            //   onOpen={this.windowHasOpened}
+                            //   onClose={this.windowHasClosed}
+                            marker={this.state.activeMarker}
+                            visible={this.state.showingInfoWindow}>
+                                <div>
+                                        <h2>{this.state.selectedPlace.name}</h2>
+                                        
+                                </div>
+                            </InfoWindow>
                         </Map>
                     </div>
                 </div>
