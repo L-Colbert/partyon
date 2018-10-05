@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import Markers from './Markers'
 import '../css/App.css'
 // import PropTypes from 'propTypes'
 
 
 class MapContainer extends Component {
-
     render() {
         const [lat, lng] = this.props.defaultMapProps[0].center
         const zoom = this.props.defaultMapProps[1].zoom
+
         return (
             <main role="main">
-                {console.log(zoom)}
                 <div>
                     <div className="drop-down-menu">
                         <select>
@@ -26,23 +26,12 @@ class MapContainer extends Component {
                         <Map
                             google={this.props.google}
                             initialCenter={
-
-                                {
-                                    lat: lat,
-                                    lng: lng
-                                }}
+                                { lat: lat, lng: lng }}
                             zoom={zoom}
-                            onReady={this.addMarkers}
                         >
-                            {/* {this.props.nightSpots.map(spot => ( */}
-                            <Marker
-                                nightSpots={this.props.nightSpots}
-                            />
-                            {/* ))} */}
-                            {/* // <Marker
-                                // name={'test'}
-                                // position={{ lat: 33.748995, lng: -84.387982 }}
-                            // /> */}
+                            {this.props.nightSpots.map(spot => (
+                                <Marker key={spot.venueId} position={{ lat: spot.lat, lng: spot.lng }} />
+                            ))}
                         </Map>
                     </div>
                 </div>
