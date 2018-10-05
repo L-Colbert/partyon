@@ -7,8 +7,11 @@ import '../css/App.css'
 class MapContainer extends Component {
 
     render() {
+        const [lat, lng] = this.props.defaultMapProps[0].center
+        const zoom = this.props.defaultMapProps[1].zoom
         return (
             <main role="main">
+                {console.log(zoom)}
                 <div>
                     <div className="drop-down-menu">
                         <select>
@@ -22,14 +25,24 @@ class MapContainer extends Component {
                         {/* <img src={this.props.copyOfMapAtl} alt="map" /> */}
                         <Map
                             google={this.props.google}
-                            initialCenter={{
-                                lat: 33.748995,
-                                lng: -84.387982
-                            }}
-                            zoom={10} >
+                            initialCenter={
+
+                                {
+                                    lat: lat,
+                                    lng: lng
+                                }}
+                            zoom={zoom}
+                            onReady={this.addMarkers}
+                        >
+                            {/* {this.props.nightSpots.map(spot => ( */}
                             <Marker
-                                name={'test'}
-                                position={{ lat: 33.748995, lng: -84.387982 }} />
+                                nightSpots={this.props.nightSpots}
+                            />
+                            {/* ))} */}
+                            {/* // <Marker
+                                // name={'test'}
+                                // position={{ lat: 33.748995, lng: -84.387982 }}
+                            // /> */}
                         </Map>
                     </div>
                 </div>

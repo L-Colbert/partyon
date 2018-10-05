@@ -12,7 +12,7 @@ class App extends Component {
     nightSpots: []
   }
   
-  loadMap = () => {
+  loadStaticMap = () => {
     let key = `key=AIzaSyBR94Y6cJWdYrdIJ_LjSites5nBTwL9yhs`
     let center = `center=33.748995,-84.387982`
     let size = `size=300x300`
@@ -43,8 +43,6 @@ class App extends Component {
   getNightSpots = () => {
     // GET https://api.foursquare.com/v2/venues/search
     // GET https://api.foursquare.com/v2/venues/explore
-
-
     // 4d4b7105d754a06376d81259 nightlight spot
     let fourSqParams = [
       `ll=33.748995,-84.387982`,
@@ -67,7 +65,7 @@ class App extends Component {
       }).then(data => {
         console.log(data.response.groups[0].items)
         let venueIds = data.response.groups[0].items.map(dataItem => {
-          return { "venueId": dataItem.venue.id, "lat": dataItem.venue.location.lat, "long": dataItem.venue.location.lng }
+          return { "name":dataItem.venue.name, "venueId": dataItem.venue.id, "lat": dataItem.venue.location.lat, "long": dataItem.venue.location.lng }
         })
         this.setState({ nightSpots: venueIds })
         return venueIds
@@ -79,7 +77,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.loadMap()
+    this.loadStaticMap()
     this.getNightSpots()
   }
 
@@ -91,7 +89,9 @@ class App extends Component {
             Party On!
           </h1>
         </header>
-        <MapContainer copyOfMapAtl={this.state.staticMap}
+        <MapContainer
+          defaultMapProps={this.state.defaultMapProps}
+          copyOfMapAtl={this.state.staticMap}
           nightSpots={this.state.nightSpots}
         />
       </div>
