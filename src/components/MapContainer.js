@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import Markers from './Markers'
 import '../css/App.css'
+import Infowindow from './Infowindow'
 // import PropTypes from 'propTypes'
 
 
@@ -58,10 +59,7 @@ class MapContainer extends Component {
                             //   onClose={this.windowHasClosed}
                             marker={this.state.activeMarker}
                             visible={this.state.showingInfoWindow}>
-                                <div>
-                                        <h2>{this.state.selectedPlace.name}</h2>
-                                        
-                                </div>
+                            <Infowindow state={this.state}/>
                             </InfoWindow>
                         </Map>
                     </div>
