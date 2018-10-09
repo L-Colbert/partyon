@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './css/App.css';
 import MapContainer from './components/MapContainer';
 import Sidebar from './components/Sidebar'
-// import GoogleApiComponent from 'google-maps-react/dist/GoogleApiComponent';
-// import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 class App extends Component {
   state = {
@@ -12,9 +10,7 @@ class App extends Component {
       [
         { center: [33.748995, -84.387982] },
         { zoom: 10 }],
-    // nightSpots: {},
-    nightSpots: [],
-    // markers: []
+    nightSpots: []
   }
 
   loadStaticMap = () => {
@@ -117,6 +113,7 @@ class App extends Component {
   }
 
   render() {
+    {console.log(this.state.nightSpots)}
     return (
       <div className="App" >
         <header role="banner" className="App-header">
@@ -124,9 +121,10 @@ class App extends Component {
             Party On!
           </h1>
         </header>
-          <nav>
-            <Sidebar />
-          </nav>
+        <nav>
+          <Sidebar
+            nightSpots={this.state.nightSpots} />
+        </nav>
         <MapContainer
           defaultMapProps={this.state.defaultMapProps}
           copyOfMapAtl={this.state.staticMap}

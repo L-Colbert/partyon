@@ -10,9 +10,6 @@ class Infowindow extends Component {
                 <h2>{markerInfo.selectedPlace.name}</h2>
                 <div></div>
                 <div>
-                    {/* {markerInfo.location.map(elem => 
-                        elem
-                    )} */}
                     <p>{markerInfo.location[0].formattedAddress[0]}</p>
                     <p>{markerInfo.location[0].formattedAddress[1]}</p>
                     <p>{markerInfo.selectedPlace.hours}</p>

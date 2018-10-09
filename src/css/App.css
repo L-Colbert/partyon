@@ -11,10 +11,17 @@ body {
 
 }
 
-h1,
+h1 {
+  color: #e19dcc
+}
+
+h1, 
 h2 {
-  margin: 0;
   text-align: center;
+}
+
+ul {
+  padding: 9px
 }
 
 /****** navigation ******/
@@ -30,6 +37,13 @@ nav {
   position: fixed;  
   left: 0;
   bottom: 0;
+}
+
+.list-items {
+  -webkit-box-shadow: 2px -1px 10px 0px rgba(0,0,0,0.23);
+  -moz-box-shadow: 2px -1px 10px 0px rgba(0,0,0,0.23);
+  box-shadow: 2px -1px 10px 0px rgba(0,0,0,0.23);
+  padding: 0px 0px 0 9px;
 }
 
 /****** main content ******/
