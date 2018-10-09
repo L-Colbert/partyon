@@ -1,22 +1,45 @@
-.App {
-  text-align: center;
+body {
+  background-color: #322136;
 }
 
 /****** header ******/
 .App-header {
-  background-color: #322136;
-  min-height: 10vh;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 67px;
+  margin-bottom: 10px;
+  z-index: 1001;
+  width: 100%;
+
+}
+
+h1,
+h2 {
+  margin: 0;
+  text-align: center;
 }
 
 /****** navigation ******/
-
+nav {
+  text-align: left;
+  width: 99%;
+  overflow-y: scroll;
+  visibility: visible;
+  background-color: #e19dcc;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  height: 45%;
+  position: fixed;  
+  left: 0;
+  bottom: 0;
+}
 
 /****** main content ******/
 #map { 
   height: 100%;
   width: 100%;
+    position: fixed;
+    width: 99%;
+    height: 40%;
+    top: 15%;
 }
 
 .drop-down-menu { 
