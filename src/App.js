@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './css/App.css';
 import MapContainer from './components/MapContainer';
 // import GoogleApiComponent from 'google-maps-react/dist/GoogleApiComponent';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+// import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 class App extends Component {
   state = {

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import '../css/App.css'
 import Infowindow from './Infowindow'
-// import PropTypes from 'propTypes'
+import PropTypes from 'prop-types'
+
 
 
 class MapContainer extends Component {
@@ -15,6 +16,12 @@ class MapContainer extends Component {
         location: []
     };
 
+    static PropTypes = {
+        google: PropTypes.object,
+        zoom: PropTypes.number,
+        initialCenter: PropTypes.object
+    }
+
     openInfoWindow = (props, marker, e) =>
         this.setState({
             selectedPlace: props,
@@ -23,10 +30,10 @@ class MapContainer extends Component {
             location: props.address
         });
 
-        render() {
-            console.log(this.state.nightSpots)
+    render() {
+        // console.log(this.state.nightSpots)
 
-            const defaultMapProps = this.props.defaultMapProps
+        // const defaultMapProps = this.props.defaultMapProps
         const [lat, lng] = this.props.defaultMapProps[0].center
         const zoom = this.props.defaultMapProps[1].zoom
 
@@ -51,7 +58,7 @@ class MapContainer extends Component {
                             initialCenter={
                                 { lat: lat, lng: lng }}
                             zoom={zoom}
-                            >
+                        >
                             {/* <Marker
                                 name={this.props.nightSpots.name}
                                 key={this.props.nightSpots.venueId}
@@ -68,18 +75,18 @@ class MapContainer extends Component {
                             /> */}
                             {this.props.nightSpots.map(spot => (
                                 <Marker
-                                name={spot.name}
-                                key={spot.venueId}
-                                address={[spot.location]}
-                                state={spot.state}
-                                city={spot.city}
-                                postalCode={spot.postalCode}
-                                hours={spot.hours}
-                                rating={spot.rating}
-                                
-                                // selectedPlace={this.state.selectedPlace}
-                                position={{ lat: spot.lat, lng: spot.lng }}
-                                onClick={this.openInfoWindow}
+                                    name={spot.name}
+                                    key={spot.venueId}
+                                    address={[spot.location]}
+                                    state={spot.state}
+                                    city={spot.city}
+                                    postalCode={spot.postalCode}
+                                    hours={spot.hours}
+                                    rating={spot.rating}
+
+                                    // selectedPlace={this.state.selectedPlace}
+                                    position={{ lat: spot.lat, lng: spot.lng }}
+                                    onClick={this.openInfoWindow}
                                 />
                             ))}
                             <InfoWindow
