@@ -40,15 +40,6 @@ class MapContainer extends Component {
         return (
             <main role="main">
                 <div>
-                    <div className="drop-down-menu">
-                        <select>
-                            <option value="Select a">Select a neighborhood</option>
-                            <option value="2">Buckhead</option>
-                            <option value="3">Downtown</option>
-                            <option value="4">Midtown</option>
-                            <option value="5">Little Five Points</option>
-                        </select>
-                    </div>
                     <div id="map" role="application">
                         {/* <img src={this.props.copyOfMapAtl} alt="map" /> */}
                         <Map

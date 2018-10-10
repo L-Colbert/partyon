@@ -5,18 +5,19 @@ import PropTypes from 'prop-types'
 
 class Sidebar extends Component {
     static propTypes = {
-        serachResults: PropTypes.array
+        searchResults: PropTypes.array
     }
-    // state = {
-    //     serachResults : this.props.nightSpots
-    // }
+    state = {
+        searchResults: []
+    }
     componentDidMount() {
-
+        this.setState({ searchResults: this.props.nightSpots })
     }
 
     render() {
         return (
             <div className="sidebar">
+                {console.log(this.state.searchResults)}
                 <div className="drop-down-menu">
                     <select>
                         <option value="Select a">Select a neighborhood</option>
@@ -28,25 +29,10 @@ class Sidebar extends Component {
                 </div>
                 <h2>Search Results</h2>
                 <ul>
-                    {/* {console.log(this.state.serachResults)} */}
                     {this.props.nightSpots.map(spot => (
                         <ListItems key={spot.venueId}
+                            nightSpots={this.props.nightSpots}
                             spot={spot} />
-
-                        // <Marker
-                        //     name={spot.name}
-                        //     key={spot.venueId}
-                        //     address={[spot.location]}
-                        //     state={spot.state}
-                        //     city={spot.city}
-                        //     postalCode={spot.postalCode}
-                        //     hours={spot.hours}
-                        //     rating={spot.rating}
-
-                        //     // selectedPlace={this.state.selectedPlace}
-                        //     position={{ lat: spot.lat, lng: spot.lng }}
-                        //     onClick={this.openInfoWindow}
-                        // />
                     ))}
                 </ul>
             </div>

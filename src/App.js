@@ -100,7 +100,7 @@ class App extends Component {
           const match = this.state.nightSpots.find(spot => spot.venueId === data.response.venue.id)
           return (Object.assign(match, data.response.venue))
         }).then(addSpot => {
-          // this.setState( { nightSpots: Object.assign(this.state.nightSpots, addSpot)} )
+          this.setState( { nightSpots: Object.assign(this.state.nightSpots, addSpot)} )
         }).catch(error => {
           console.log(`No spot details because: ${error}`)
         })
@@ -113,7 +113,6 @@ class App extends Component {
   }
 
   render() {
-    {console.log(this.state.nightSpots)}
     return (
       <div className="App" >
         <header role="banner" className="App-header">
