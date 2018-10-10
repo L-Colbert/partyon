@@ -6,7 +6,6 @@ class Infowindow extends Component {
         const markerInfo = this.props.state
         return (
             <div>
-            {console.log(markerInfo.location)}
                 <h2>{markerInfo.selectedPlace.name}</h2>
                 <div>
                     <p>{markerInfo.location[0] && markerInfo.location[0].formattedAddress[0] ? markerInfo.location[0].formattedAddress[0] : ``}</p>

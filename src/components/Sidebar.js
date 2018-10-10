@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../css/App.css'
 import ListItems from './ListItems'
 import PropTypes from 'prop-types'
+import DropDown from './DropDown'
 
 class Sidebar extends Component {
     static propTypes = {
@@ -17,25 +18,17 @@ class Sidebar extends Component {
     render() {
         return (
             <div className="sidebar">
-                {console.log(this.state.searchResults)}
-                <div className="drop-down-menu">
-                    <select>
-                        <option value="Select a">Select a neighborhood</option>
-                        <option value="2">Buckhead</option>
-                        <option value="3">Downtown</option>
-                        <option value="4">Midtown</option>
-                        <option value="5">Little Five Points</option>
-                    </select>
-                </div>
+                <DropDown
+                changeSelection={this.props.changeSelection}/>
                 <h2>Search Results</h2>
                 <ul>
-                    {this.props.nightSpots.map(spot => (
+                    {this.props.currentlyShowing.map(spot => (
                         <ListItems key={spot.venueId}
-                            nightSpots={this.props.nightSpots}
+                            // nightSpots={this.state.currentlyShowing}
                             spot={spot} />
                     ))}
                 </ul>
-            </div>
+            </div >
         )
     }
 }

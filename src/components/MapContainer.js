@@ -12,7 +12,7 @@ class MapContainer extends Component {
         selectedPlace: {},
         activeMarker: {},
         showingInfoWindow: false,
-        nightSpots: this.props.nightSpots,
+        // nightSpots: this.props.nightSpots,
         location: []
     };
 
@@ -31,7 +31,6 @@ class MapContainer extends Component {
         });
 
     render() {
-        // console.log(this.state.nightSpots)
 
         // const defaultMapProps = this.props.defaultMapProps
         const [lat, lng] = this.props.defaultMapProps[0].center
@@ -48,7 +47,7 @@ class MapContainer extends Component {
                                 { lat: lat, lng: lng }}
                             zoom={zoom}
                         >
-                            {this.props.nightSpots.map(spot => (
+                            {this.props.currentlyShowing.map(spot => (
                                 <Marker
                                     name={spot.name}
                                     key={spot.venueId}
@@ -83,3 +82,5 @@ class MapContainer extends Component {
 export default GoogleApiWrapper({
     apiKey: 'AIzaSyBR94Y6cJWdYrdIJ_LjSites5nBTwL9yhs'
 })(MapContainer)
+
+// export default MapContainer

@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import './css/App.css';
-import MapContainer from './components/MapContainer';
+import React, { Component } from 'react'
+import './css/App.css'
+import MapContainer from './components/MapContainer'
 import Sidebar from './components/Sidebar'
+import { strictEqual } from 'assert'
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 class App extends Component {
   state = {
@@ -10,7 +12,9 @@ class App extends Component {
       [
         { center: [33.748995, -84.387982] },
         { zoom: 10 }],
-    nightSpots: []
+    nightSpots: [],
+    currentlyShowing: []
+    // bounds: []
   }
 
   loadStaticMap = () => {
@@ -33,7 +37,7 @@ class App extends Component {
           return response.blob()
         }
       }).then(data => {
-        this.setState({ staticMap: URL.createObjectURL(data) });
+        this.setState({ staticMap: URL.createObjectURL(data) })
         return (this.state.staticMap)
       }).catch(err => {
         console.log(`didn't fetch map: err ${err}`)
@@ -63,17 +67,39 @@ class App extends Component {
         }
       }).then(data => {
         let venueInfo = data.response.groups[0].items.map(dataItem => {
-          return { "name": dataItem.venue.name, "venueId": dataItem.venue.id, "lat": dataItem.venue.location.lat, "lng": dataItem.venue.location.lng }
+          return {
+            "name": dataItem.venue.name,
+            "venueId": dataItem.venue.id,
+            "lat": dataItem.venue.location.lat,
+            "lng": dataItem.venue.location.lng,
+            "neighborhood": dataItem.venue.location.neighborhood,
+            "isVisible": true
+          }
         })
-        this.setState({ nightSpots: venueInfo })
+        this.setState({ nightSpots: venueInfo, currentlyShowing: venueInfo })
         return venueInfo
       }).then(venueInfoArray => {
+        // let newBounds = this.getBounds(venueInfoArray)
         this.getSpotDetails(venueInfoArray)
+        // this.setState({ bounds: newBounds })
       })
       .catch(error => {
         console.log(`This is the problem: ${error}`)
       })
   }
+
+  // getBounds = (arrayWithCoordinates) => {
+  //   console.log(arrayWithCoordinates)
+  //   var bounds = new this.props.google.maps.LatLngBounds()
+  //   console.log(bounds)
+  //   arrayWithCoordinates.forEach(site => {
+  //     let lat = site.lat
+  //     let lng = site.lng
+  //     bounds.extend(new this.props.google.maps.LatLng(lat, lng))
+  //     console.log(bounds)
+  //   })
+  //   return bounds
+  // }
 
   getSpotDetails = (spotsArray) => {
     if (!spotsArray) {
@@ -96,16 +122,25 @@ class App extends Component {
             return response.json()
           }
         }).then(data => {
-
           const match = this.state.nightSpots.find(spot => spot.venueId === data.response.venue.id)
           return (Object.assign(match, data.response.venue))
         }).then(addSpot => {
-          this.setState( { nightSpots: Object.assign(this.state.nightSpots, addSpot)} )
+          this.setState({ nightSpots: Object.assign(this.state.nightSpots, addSpot) })
         }).catch(error => {
           console.log(`No spot details because: ${error}`)
         })
     })
   }
+
+  changeSelection = (selectedValue) => {
+    if (selectedValue === "Select a") { 
+      this.setState({currentlyShowing: this.state.nightSpots})
+    } else {
+      const holder = this.state.nightSpots.filter(spot => spot.neighborhood === selectedValue)
+      this.setState({ currentlyShowing: holder })
+    }
+  }
+
 
   componentDidMount() {
     this.loadStaticMap()
@@ -113,6 +148,10 @@ class App extends Component {
   }
 
   render() {
+    // var bounds = new this.props.google.maps.LatLngBounds()
+    // for (var i = 0; i < this.state.nightSpots.length; i++) {
+    //   bounds.extend(new this.props.google.maps.LatLng(this.state.nightSpots.lat, this.state.nightSpots.lng))
+    // }
     return (
       <div className="App" >
         <header role="banner" className="App-header">
@@ -122,18 +161,23 @@ class App extends Component {
         </header>
         <nav>
           <Sidebar
-            nightSpots={this.state.nightSpots} />
+            currentlyShowing={this.state.currentlyShowing}
+            changeSelection={this.changeSelection} />
         </nav>
         <MapContainer
           defaultMapProps={this.state.defaultMapProps}
           copyOfMapAtl={this.state.staticMap}
-          nightSpots={this.state.nightSpots}
+          // nightSpots={this.state.nightSpots}
+          currentlyShowing={this.state.currentlyShowing}
         // onReady={this.addMarkers}
-        // markers={this.state.markers}
+        // bounds={bounds}
         />
-      </div>
+      </div >
     )
   }
 }
 
-export default App;
+// export default App
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyBR94Y6cJWdYrdIJ_LjSites5nBTwL9yhs'
+})(App)
