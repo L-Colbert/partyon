@@ -3,9 +3,12 @@ import './css/App.css'
 import MapContainer from './components/MapContainer'
 import Sidebar from './components/Sidebar'
 import { strictEqual } from 'assert'
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 
 class App extends Component {
+  //   constructor(props){
+  //     super(props)
+  //   }
   state = {
     staticMap: [],
     defaultMapProps:
@@ -13,8 +16,30 @@ class App extends Component {
         { center: [33.748995, -84.387982] },
         { zoom: 10 }],
     nightSpots: [],
-    currentlyShowing: []
+    currentlyShowing: [], //mutable is that ok
     // bounds: []
+    //code from https://www.npmjs.com/package/google-maps-react
+    selectedPlace: {},
+    activeMarker: {},
+    showingInfoWindow: false,
+    location: []
+  }
+
+  // updateStateTwo = (key, value) => {
+  //   console.log(key,value)
+
+  //   this.setState({
+  //     currentlyShowing: value
+  //   })
+  // }
+
+  updateState = (props, marker, e) => {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true,
+      location: props.address
+    })
   }
 
   loadStaticMap = () => {
@@ -73,7 +98,8 @@ class App extends Component {
             "lat": dataItem.venue.location.lat,
             "lng": dataItem.venue.location.lng,
             "neighborhood": dataItem.venue.location.neighborhood,
-            "isVisible": true
+            "isVisible": true, //marker visibility
+            "listDetailVisible": false
           }
         })
         this.setState({ nightSpots: venueInfo, currentlyShowing: venueInfo })
@@ -133,8 +159,8 @@ class App extends Component {
   }
 
   changeSelection = (selectedValue) => {
-    if (selectedValue === "Select a") { 
-      this.setState({currentlyShowing: this.state.nightSpots})
+    if (selectedValue === "Select a") {
+      this.setState({ currentlyShowing: this.state.nightSpots })
     } else {
       const holder = this.state.nightSpots.filter(spot => spot.neighborhood === selectedValue)
       this.setState({ currentlyShowing: holder })
@@ -152,6 +178,7 @@ class App extends Component {
     // for (var i = 0; i < this.state.nightSpots.length; i++) {
     //   bounds.extend(new this.props.google.maps.LatLng(this.state.nightSpots.lat, this.state.nightSpots.lng))
     // }
+
     return (
       <div className="App" >
         <header role="banner" className="App-header">
@@ -162,14 +189,18 @@ class App extends Component {
         <nav>
           <Sidebar
             currentlyShowing={this.state.currentlyShowing}
-            changeSelection={this.changeSelection} />
+            changeSelection={this.changeSelection}
+            state={this.state}
+            updateState={this.updateState}
+            updateStateTwo={this.updateStateTwo}
+          />
         </nav>
         <MapContainer
-          defaultMapProps={this.state.defaultMapProps}
           copyOfMapAtl={this.state.staticMap}
-          // nightSpots={this.state.nightSpots}
           currentlyShowing={this.state.currentlyShowing}
-        // onReady={this.addMarkers}
+          defaultMapProps={this.state.defaultMapProps}
+          state={this.state}
+          updateState={this.updateState}
         // bounds={bounds}
         />
       </div >

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import '../css/App.css'
 import Infowindow from './Infowindow'
@@ -7,32 +7,12 @@ import Infowindow from './Infowindow'
 
 
 class MapContainer extends Component {
-    //code from https://www.npmjs.com/package/google-maps-react
-    state = {
-        selectedPlace: {},
-        activeMarker: {},
-        showingInfoWindow: false,
-        // nightSpots: this.props.nightSpots,
-        location: []
-    };
-
-    // static PropTypes = {
-    //     google: PropTypes.object,
-    //     zoom: PropTypes.number,
-    //     initialCenter: PropTypes.object
-    // }
 
     openInfoWindow = (props, marker, e) =>
-        this.setState({
-            selectedPlace: props,
-            activeMarker: marker,
-            showingInfoWindow: true,
-            location: props.address
-        });
+        this.props.updateState(props, marker, e)
 
     render() {
 
-        // const defaultMapProps = this.props.defaultMapProps
         const [lat, lng] = this.props.defaultMapProps[0].center
         const zoom = this.props.defaultMapProps[1].zoom
 
@@ -57,18 +37,15 @@ class MapContainer extends Component {
                                     postalCode={spot.postalCode}
                                     hours={spot.hours}
                                     rating={spot.rating}
-
-                                    // selectedPlace={this.state.selectedPlace}
                                     position={{ lat: spot.lat, lng: spot.lng }}
                                     onClick={this.openInfoWindow}
+
                                 />
                             ))}
                             <InfoWindow
-                                //   onOpen={this.windowHasOpened}
-                                //   onClose={this.windowHasClosed}
-                                marker={this.state.activeMarker}
-                                visible={this.state.showingInfoWindow}>
-                                <Infowindow state={this.state} />
+                                marker={this.props.state.activeMarker}
+                                visible={this.props.state.showingInfoWindow}>
+                                <Infowindow state={this.props.state} />
                             </InfoWindow>
                         </Map>
                     </div>
