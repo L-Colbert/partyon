@@ -8,14 +8,23 @@ class Sidebar extends Component {
     // static propTypes = {
     //     searchResults: PropTypes.array
     // }
-    // // https://eddyerburgh.me/toggle-visibility-with-react
 
+    state = {
+        detailsOpen: {}
+    }
+
+    // https://eddyerburgh.me/toggle-visibility-with-react
     toggleDiv(spot) {
         let searchResults = this.props.currentlyShowing
-        console.log(searchResults)
+        let currentlyOpen = this.state.detailsOpen
+
         searchResults.forEach(result => {
+            if (result === currentlyOpen) {
+                result.listDetailVisible = !result.listDetailVisible
+            }
             if (spot.venueId === result.venueId) {
                 result.listDetailVisible = !result.listDetailVisible
+                this.setState({ detailsOpen: spot})
             }
         })
         this.props.individualStateUpdate('currentlyShowing', searchResults)
