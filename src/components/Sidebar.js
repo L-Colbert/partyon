@@ -5,30 +5,21 @@ import PropTypes from 'prop-types'
 import DropDown from './DropDown'
 
 class Sidebar extends Component {
-    static propTypes = {
-        searchResults: PropTypes.array
-    }
-    state = {
-        searchResults: []
-    }
-    componentDidMount() {
-        this.setState({ searchResults: this.props.nightSpots })
-    }
-
+    // static propTypes = {
+    //     searchResults: PropTypes.array
+    // }
     // // https://eddyerburgh.me/toggle-visibility-with-react
+
     toggleDiv(spot) {
         let searchResults = this.props.currentlyShowing
         console.log(searchResults)
         searchResults.forEach(result => {
-            console.log(result)
             if (spot.venueId === result.venueId) {
                 result.listDetailVisible = !result.listDetailVisible
             }
         })
-
-        this.setState({ searchResults:searchResults })
+        this.props.individualStateUpdate('currentlyShowing', searchResults)
     }
-
 
     render() {
         return (
@@ -38,8 +29,7 @@ class Sidebar extends Component {
                 <h2>Search Results</h2>
                 <ul>
                     {this.props.currentlyShowing.map(spot => (
-                        <div className="list-items">
-                            {console.log(spot)}
+                        <div key={spot.venueId} className="list-items">
                             <a href="#/" onClick={() => this.toggleDiv(spot)}>
                                 {spot.name ? spot.name : `Name unknown`}
                             </a>

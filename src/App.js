@@ -25,13 +25,11 @@ class App extends Component {
     location: []
   }
 
-  // updateStateTwo = (key, value) => {
-  //   console.log(key,value)
-
-  //   this.setState({
-  //     currentlyShowing: value
-  //   })
-  // }
+  individualStateUpdate = (key, value) => {
+    this.setState({
+      key: value
+    })
+  }
 
   updateState = (props, marker, e) => {
     this.setState({
@@ -167,7 +165,6 @@ class App extends Component {
     }
   }
 
-
   componentDidMount() {
     this.loadStaticMap()
     this.getNightSpots()
@@ -192,7 +189,7 @@ class App extends Component {
             changeSelection={this.changeSelection}
             state={this.state}
             updateState={this.updateState}
-            updateStateTwo={this.updateStateTwo}
+            individualStateUpdate={this.individualStateUpdate}
           />
         </nav>
         <MapContainer

@@ -39,7 +39,7 @@ class MapContainer extends Component {
                                     rating={spot.rating}
                                     position={{ lat: spot.lat, lng: spot.lng }}
                                     onClick={this.openInfoWindow}
-
+                                    animation={spot.listDetailVisible ? '1' : '0'}
                                 />
                             ))}
                             <InfoWindow
@@ -54,7 +54,6 @@ class MapContainer extends Component {
         )
     }
 }
-
 
 export default GoogleApiWrapper({
     apiKey: 'AIzaSyBR94Y6cJWdYrdIJ_LjSites5nBTwL9yhs'
