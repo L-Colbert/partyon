@@ -73,7 +73,7 @@ class MapContainer extends Component {
                             zoom={zoom}
                             onClick={() => this.mapClicked}
                         >
-                            {this.props.state.markers.map(spot => (
+                            {this.state.markers.map(spot => (
                                 <Marker />
                             ))}
                             <InfoWindow
@@ -92,7 +92,7 @@ class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyBR94Y6cJWdYrdIJ_LjSites5nBTwL9yhs'
+    apiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY
 })(MapContainer)
 
 // export default MapContainer

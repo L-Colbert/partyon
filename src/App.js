@@ -68,7 +68,7 @@ class App extends Component {
     })
 
   loadStaticMap = () => {
-    let key = `key=AIzaSyBR94Y6cJWdYrdIJ_LjSites5nBTwL9yhs`
+    let key = `key=${process.env.REACT_APP_GOOGLE_MAP_API_KEY}`
     let center = `center=33.748995,-84.387982`
     let size = `size=300x300`
     let zoom = `zoom=10`
@@ -215,5 +215,5 @@ class App extends Component {
 
 // export default App
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBR94Y6cJWdYrdIJ_LjSites5nBTwL9yhs'
+  apiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY
 })(App)

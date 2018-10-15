@@ -29,6 +29,7 @@ class Sidebar extends Component {
 
     // https://eddyerburgh.me/toggle-visibility-with-react
     toggleDiv(spot) {
+        console.log(this.state.markers)
         const searchResults = this.props.state.currentlyShowing
         const currentlyOpen = this.state.detailsOpen
 
