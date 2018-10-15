@@ -1,0 +1,642 @@
+{
+    "meta": {
+        "code": 200,
+        "requestId": "5bbbba269fb6b75291fcceab"
+    },
+    "response": {
+        "venue": {
+            "id": "4aed3d58f964a5205ecd21e3",
+            "name": "Gold Room Nightclub",
+            "contact": {
+                "phone": "4046939693",
+                "formattedPhone": "(404) 693-9693",
+                "twitter": "goldroomatl",
+                "facebook": "152228284806309",
+                "facebookUsername": "GoldRoomAtlanta",
+                "facebookName": "GOLD ROOM Atlanta"
+            },
+            "location": {
+                "address": "2416 Piedmont Rd NE",
+                "crossStreet": "btw Lindbergh Dr & Lindbergh Way",
+                "lat": 33.821110074608285,
+                "lng": -84.36870042987137,
+                "labeledLatLngs": [
+                    {
+                        "label": "display",
+                        "lat": 33.821110074608285,
+                        "lng": -84.36870042987137
+                    }
+                ],
+                "postalCode": "30324",
+                "cc": "US",
+                "city": "Atlanta",
+                "state": "GA",
+                "country": "United States",
+                "formattedAddress": [
+                    "2416 Piedmont Rd NE (btw Lindbergh Dr & Lindbergh Way)",
+                    "Atlanta, GA 30324",
+                    "United States"
+                ]
+            },
+            "canonicalUrl": "https://foursquare.com/goldroomatl",
+            "categories": [
+                {
+                    "id": "4bf58dd8d48988d11f941735",
+                    "name": "Nightclub",
+                    "pluralName": "Nightclubs",
+                    "shortName": "Nightclub",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/nightclub_",
+                        "suffix": ".png"
+                    },
+                    "primary": true
+                },
+                {
+                    "id": "4bf58dd8d48988d116941735",
+                    "name": "Bar",
+                    "pluralName": "Bars",
+                    "shortName": "Bar",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "verified": true,
+            "stats": {
+                "tipCount": 15
+            },
+            "url": "http://www.goldroomatl.com",
+            "price": {
+                "tier": 3,
+                "message": "Expensive",
+                "currency": "$"
+            },
+            "likes": {
+                "count": 100,
+                "groups": [
+                    {
+                        "type": "others",
+                        "count": 100,
+                        "items": []
+                    }
+                ],
+                "summary": "100 Likes"
+            },
+            "dislike": false,
+            "ok": false,
+            "rating": 8.8,
+            "ratingColor": "73CF42",
+            "ratingSignals": 128,
+            "allowMenuUrlEdit": true,
+            "beenHere": {
+                "count": 0,
+                "unconfirmedCount": 0,
+                "marked": false,
+                "lastCheckinExpiredAt": 0
+            },
+            "specials": {
+                "count": 0,
+                "items": []
+            },
+            "photos": {
+                "count": 100,
+                "groups": [
+                    {
+                        "type": "checkin",
+                        "name": "Friends' check-in photos",
+                        "count": 0,
+                        "items": []
+                    },
+                    {
+                        "type": "venue",
+                        "name": "Venue photos",
+                        "count": 100,
+                        "items": [
+                            {
+                                "id": "54c313d4498ec6c783a0156f",
+                                "createdAt": 1422070740,
+                                "source": {
+                                    "name": "Swarm for Android",
+                                    "url": "https://www.swarmapp.com"
+                                },
+                                "prefix": "https://igx.4sqi.net/img/general/",
+                                "suffix": "/10565414_sO39--Q1RHgA-7gGusBzgJqlwVPiMW_xoqfY__7lxDs.jpg",
+                                "width": 540,
+                                "height": 960,
+                                "user": {
+                                    "id": "10565414",
+                                    "firstName": "Deron",
+                                    "lastName": "Moreman",
+                                    "gender": "male",
+                                    "photo": {
+                                        "prefix": "https://igx.4sqi.net/img/user/",
+                                        "suffix": "/3CFJQLSQ1J3H1L3L.jpg"
+                                    }
+                                },
+                                "visibility": "public"
+                            }
+                        ]
+                    }
+                ],
+                "summary": "0 photos"
+            },
+            "venuePage": {
+                "id": "33885616"
+            },
+            "reasons": {
+                "count": 1,
+                "items": [
+                    {
+                        "summary": "Lots of people like this place",
+                        "type": "general",
+                        "reasonName": "rawLikesReason"
+                    }
+                ]
+            },
+            "description": "Atlanta's NEW #1 NIGHTCLUB!!",
+            "storeId": "",
+            "page": {
+                "user": {
+                    "id": "33885616",
+                    "firstName": "Gold Room Nightclub",
+                    "gender": "none",
+                    "photo": {
+                        "prefix": "https://igx.4sqi.net/img/user/",
+                        "suffix": "/33885616-AJOQBFU2OO4C45YP.png"
+                    },
+                    "type": "venuePage",
+                    "venue": {
+                        "id": "4aed3d58f964a5205ecd21e3"
+                    },
+                    "tips": {
+                        "count": 1
+                    },
+                    "lists": {
+                        "groups": [
+                            {
+                                "type": "created",
+                                "count": 2,
+                                "items": []
+                            }
+                        ]
+                    },
+                    "homeCity": "Atlanta, GA",
+                    "bio": "",
+                    "contact": {
+                        "twitter": "goldroomatl",
+                        "facebook": "152228284806309"
+                    }
+                }
+            },
+            "hereNow": {
+                "count": 0,
+                "summary": "Nobody here",
+                "groups": []
+            },
+            "createdAt": 1257061720,
+            "tips": {
+                "count": 15,
+                "groups": [
+                    {
+                        "type": "others",
+                        "name": "All tips",
+                        "count": 15,
+                        "items": [
+                            {
+                                "id": "4bfad29070c603bb15d49cb4",
+                                "createdAt": 1274729104,
+                                "text": "Get on the guest list for FREE admission before 11PM! You can print confirmation or just show email on your cell phone!",
+                                "type": "user",
+                                "url": "http://www.GoldRoomATL.com",
+                                "canonicalUrl": "https://foursquare.com/item/4bfad29070c603bb15d49cb4",
+                                "lang": "en",
+                                "likes": {
+                                    "count": 3,
+                                    "groups": [
+                                        {
+                                            "type": "others",
+                                            "count": 3,
+                                            "items": [
+                                                {
+                                                    "id": "71284558",
+                                                    "firstName": "Dan",
+                                                    "lastName": "Griffin",
+                                                    "gender": "none",
+                                                    "photo": {
+                                                        "prefix": "https://igx.4sqi.net/img/user/",
+                                                        "suffix": "/71284558-IB0IDTQXEWMS5WSE.jpg"
+                                                    }
+                                                },
+                                                {
+                                                    "id": "150836102",
+                                                    "firstName": "Urvi",
+                                                    "lastName": "Narang",
+                                                    "gender": "female",
+                                                    "photo": {
+                                                        "prefix": "https://igx.4sqi.net/img/user/",
+                                                        "suffix": "/150836102-FSKR430KP3JJ0EXY.jpg"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "summary": "3 likes"
+                                },
+                                "logView": true,
+                                "agreeCount": 3,
+                                "disagreeCount": 0,
+                                "todo": {
+                                    "count": 2
+                                },
+                                "user": {
+                                    "id": "146459",
+                                    "firstName": "Carrie",
+                                    "lastName": "Couch",
+                                    "gender": "female",
+                                    "photo": {
+                                        "prefix": "https://igx.4sqi.net/img/user/",
+                                        "suffix": "/FY21APKJ0UGATWRQ.jpg"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "shortUrl": "http://4sq.com/5Zd7Km",
+            "timeZone": "America/New_York",
+            "listed": {
+                "count": 56,
+                "groups": [
+                    {
+                        "type": "others",
+                        "name": "Lists from other people",
+                        "count": 56,
+                        "items": [
+                            {
+                                "id": "5105c8b4e4b0a4e932f5df99",
+                                "name": "Atlanta's Best Nightclubs - 2012",
+                                "description": "A guide to the places people love most, based on over 3 billion check-ins.",
+                                "type": "others",
+                                "user": {
+                                    "id": "46452980",
+                                    "firstName": "Best of Foursquare",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https://igx.4sqi.net/img/user/",
+                                        "suffix": "/46452980-CVQT5PGTUAFP2HBA.png"
+                                    },
+                                    "type": "page"
+                                },
+                                "editable": false,
+                                "public": true,
+                                "collaborative": false,
+                                "url": "/bestof4sq/list/atlantas-best-nightclubs--2012",
+                                "canonicalUrl": "https://foursquare.com/bestof4sq/list/atlantas-best-nightclubs--2012",
+                                "createdAt": 1359333556,
+                                "updatedAt": 1359333566,
+                                "photo": {
+                                    "id": "4e473a5162845e1d3c9da291",
+                                    "createdAt": 1313290833,
+                                    "prefix": "https://igx.4sqi.net/img/general/",
+                                    "suffix": "/AOISWXMI1HK45OSM4HORJRGV0SFH2DH2OKC1MSSLRPG5WOOM.jpg",
+                                    "width": 537,
+                                    "height": 720,
+                                    "user": {
+                                        "id": "1280657",
+                                        "firstName": "Ricky",
+                                        "lastName": "Loera",
+                                        "gender": "male",
+                                        "photo": {
+                                            "prefix": "https://igx.4sqi.net/img/user/",
+                                            "suffix": "/BSMTISEIXPWHQ4CP.jpg"
+                                        }
+                                    },
+                                    "visibility": "public"
+                                },
+                                "logView": true,
+                                "followers": {
+                                    "count": 8
+                                },
+                                "listItems": {
+                                    "count": 10,
+                                    "items": [
+                                        {
+                                            "id": "v4aed3d58f964a5205ecd21e3",
+                                            "createdAt": 1359333562
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "id": "4f8838f7e4b01f95a1c344c0",
+                                "name": "Summer in Georgia",
+                                "description": "Looking for places to spend you HOT summer in GA? This list created by suggestions from FourSquare friends of mine, popular places on online lists and FourSquare its self, there is fun in the sun!",
+                                "type": "others",
+                                "user": {
+                                    "id": "8274201",
+                                    "firstName": "Dee",
+                                    "gender": "female",
+                                    "photo": {
+                                        "prefix": "https://igx.4sqi.net/img/user/",
+                                        "suffix": "/8274201-BAXSLO5JL3OXTQEM.jpg"
+                                    }
+                                },
+                                "editable": false,
+                                "public": true,
+                                "collaborative": false,
+                                "url": "/user/8274201/list/summer-in-georgia",
+                                "canonicalUrl": "https://foursquare.com/user/8274201/list/summer-in-georgia",
+                                "createdAt": 1334327543,
+                                "updatedAt": 1423863416,
+                                "photo": {
+                                    "id": "4fc14504e4b0327851958207",
+                                    "createdAt": 1338066180,
+                                    "prefix": "https://igx.4sqi.net/img/general/",
+                                    "suffix": "/xoMq8KTHof-3s025nF_d1Fj2toSwt3Zcccmv5BXRo8E.jpg",
+                                    "width": 720,
+                                    "height": 540,
+                                    "user": {
+                                        "id": "12253578",
+                                        "firstName": "Moshe",
+                                        "lastName": "Zusman",
+                                        "gender": "male",
+                                        "photo": {
+                                            "prefix": "https://igx.4sqi.net/img/user/",
+                                            "suffix": "/ZJGV0BMDHWIEW5AT.jpg"
+                                        }
+                                    },
+                                    "visibility": "public"
+                                },
+                                "followers": {
+                                    "count": 77
+                                },
+                                "listItems": {
+                                    "count": 200,
+                                    "items": [
+                                        {
+                                            "id": "v4aed3d58f964a5205ecd21e3",
+                                            "createdAt": 1348296642
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "id": "4e893025dab49de98c569258",
+                                "name": "Da Spot's",
+                                "description": "....back in the day in los angeles,we did not always use the names of club's....but you always knew where to be when your girl said \"meet me at da spot\"-some thing's never change.",
+                                "type": "others",
+                                "user": {
+                                    "id": "14239779",
+                                    "firstName": "G-vah",
+                                    "lastName": "Styles",
+                                    "gender": "female",
+                                    "photo": {
+                                        "prefix": "https://igx.4sqi.net/img/user/",
+                                        "suffix": "/ICSWW5AWWGNCY110.jpg"
+                                    }
+                                },
+                                "editable": false,
+                                "public": true,
+                                "collaborative": false,
+                                "url": "/gvahtuude/list/da-spots",
+                                "canonicalUrl": "https://foursquare.com/gvahtuude/list/da-spots",
+                                "createdAt": 1317613605,
+                                "updatedAt": 1413817121,
+                                "photo": {
+                                    "id": "4e06d105a12d09aa8819a4e8",
+                                    "createdAt": 1309069573,
+                                    "prefix": "https://igx.4sqi.net/img/general/",
+                                    "suffix": "/NOD1WFSTCGGSVVVVHVFRPS5I2Y0KZCJ43RHK1O5VIKI1SJKM.jpg",
+                                    "width": 537,
+                                    "height": 720,
+                                    "user": {
+                                        "id": "7883230",
+                                        "firstName": "Saranya",
+                                        "lastName": "Chiaravalloti",
+                                        "gender": "female",
+                                        "photo": {
+                                            "prefix": "https://igx.4sqi.net/img/user/",
+                                            "suffix": "/XZP32J5MLLXXOBL4.jpg"
+                                        }
+                                    },
+                                    "visibility": "public"
+                                },
+                                "followers": {
+                                    "count": 29
+                                },
+                                "listItems": {
+                                    "count": 50,
+                                    "items": [
+                                        {
+                                            "id": "t4c53e0856a4bb7138b4d1c27",
+                                            "createdAt": 1317613822
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "id": "4f523600e4b0bf6b5cd88787",
+                                "name": "Atlanta Nightlife",
+                                "description": "",
+                                "type": "others",
+                                "user": {
+                                    "id": "16729749",
+                                    "firstName": "Dudley",
+                                    "lastName": "R.",
+                                    "gender": "male",
+                                    "photo": {
+                                        "prefix": "https://igx.4sqi.net/img/user/",
+                                        "suffix": "/R4KMMYQPBJK5LEIX.jpg"
+                                    }
+                                },
+                                "editable": false,
+                                "public": true,
+                                "collaborative": false,
+                                "url": "/dudley2302/list/atlanta-nightlife",
+                                "canonicalUrl": "https://foursquare.com/dudley2302/list/atlanta-nightlife",
+                                "createdAt": 1330787840,
+                                "updatedAt": 1387253425,
+                                "followers": {
+                                    "count": 9
+                                },
+                                "listItems": {
+                                    "count": 18,
+                                    "items": [
+                                        {
+                                            "id": "v4aed3d58f964a5205ecd21e3",
+                                            "createdAt": 1330791482
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "popular": {
+                "isOpen": false,
+                "isLocalHoliday": false,
+                "timeframes": [
+                    {
+                        "days": "Today",
+                        "includesToday": true,
+                        "open": [
+                            {
+                                "renderedTime": "10:00 PM–2:00 AM"
+                            }
+                        ],
+                        "segments": []
+                    },
+                    {
+                        "days": "Tue–Wed",
+                        "open": [
+                            {
+                                "renderedTime": "None"
+                            }
+                        ],
+                        "segments": []
+                    },
+                    {
+                        "days": "Thu",
+                        "open": [
+                            {
+                                "renderedTime": "10:00 PM–2:00 AM"
+                            }
+                        ],
+                        "segments": []
+                    },
+                    {
+                        "days": "Fri",
+                        "open": [
+                            {
+                                "renderedTime": "8:00 PM–3:00 AM"
+                            }
+                        ],
+                        "segments": []
+                    },
+                    {
+                        "days": "Sat",
+                        "open": [
+                            {
+                                "renderedTime": "9:00 PM–4:00 AM"
+                            }
+                        ],
+                        "segments": []
+                    },
+                    {
+                        "days": "Sun",
+                        "open": [
+                            {
+                                "renderedTime": "None"
+                            }
+                        ],
+                        "segments": []
+                    }
+                ]
+            },
+            "pageUpdates": {
+                "count": 0,
+                "items": []
+            },
+            "inbox": {
+                "count": 0,
+                "items": []
+            },
+            "attributes": {
+                "groups": [
+                    {
+                        "type": "price",
+                        "name": "Price",
+                        "summary": "$$$",
+                        "count": 1,
+                        "items": [
+                            {
+                                "displayName": "Price",
+                                "displayValue": "$$$",
+                                "priceTier": 3
+                            }
+                        ]
+                    },
+                    {
+                        "type": "reservations",
+                        "name": "Reservations",
+                        "summary": "Reservations",
+                        "count": 3,
+                        "items": [
+                            {
+                                "displayName": "Reservations",
+                                "displayValue": "Yes"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "payments",
+                        "name": "Credit Cards",
+                        "summary": "Credit Cards",
+                        "count": 7,
+                        "items": [
+                            {
+                                "displayName": "Credit Cards",
+                                "displayValue": "Yes (incl. American Express & MasterCard)"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "music",
+                        "name": "Music",
+                        "summary": "Live Music",
+                        "count": 3,
+                        "items": [
+                            {
+                                "displayName": "Live Music",
+                                "displayValue": "Live Music"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "drinks",
+                        "name": "Drinks",
+                        "summary": "Full Bar & Cocktails",
+                        "count": 5,
+                        "items": [
+                            {
+                                "displayName": "Full Bar",
+                                "displayValue": "Full Bar"
+                            },
+                            {
+                                "displayName": "Cocktails",
+                                "displayValue": "Cocktails"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bestPhoto": {
+                "id": "54c313d4498ec6c783a0156f",
+                "createdAt": 1422070740,
+                "source": {
+                    "name": "Swarm for Android",
+                    "url": "https://www.swarmapp.com"
+                },
+                "prefix": "https://igx.4sqi.net/img/general/",
+                "suffix": "/10565414_sO39--Q1RHgA-7gGusBzgJqlwVPiMW_xoqfY__7lxDs.jpg",
+                "width": 540,
+                "height": 960,
+                "visibility": "public"
+            },
+            "colors": {
+                "highlightColor": {
+                    "photoId": "54c313d4498ec6c783a0156f",
+                    "value": -14678000
+                },
+                "highlightTextColor": {
+                    "photoId": "54c313d4498ec6c783a0156f",
+                    "value": -1
+                },
+                "algoVersion": 3
+            }
+        }
+    }
+}

@@ -46,10 +46,6 @@ nav {
   padding: 0px 0px 0 9px;
 }
 
-.canSeeOrNot {
-  display: none;
-}
-
 /****** main content ******/
 #map { 
   height: 100%;

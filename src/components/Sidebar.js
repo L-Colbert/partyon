@@ -10,24 +10,41 @@ class Sidebar extends Component {
     // }
 
     state = {
-        detailsOpen: {}
+        detailsOpen: {},
+    }
+
+    moveInfoWindow = (spot) => {
+        let props = {
+            name: spot.name,
+            // address: spot.location.address,
+            rating: spot.rating,
+            // google: { maps: { … } }
+            // hours: undefined
+            map: this.props.map,
+            // mapCenter: { lat: 33.748995, lng: -84.387982 }
+            position: { lat: spot.lat, lng: spot.lng }
+        }
+        this.props.updateState(props, { lat: spot.lat, lng: spot.lng })
     }
 
     // https://eddyerburgh.me/toggle-visibility-with-react
     toggleDiv(spot) {
-        let searchResults = this.props.currentlyShowing
-        let currentlyOpen = this.state.detailsOpen
+        const searchResults = this.props.state.currentlyShowing
+        const currentlyOpen = this.state.detailsOpen
 
         searchResults.forEach(result => {
-            if (result === currentlyOpen) {
+            if (result.listDetailVisible) {
                 result.listDetailVisible = !result.listDetailVisible
             }
             if (spot.venueId === result.venueId) {
                 result.listDetailVisible = !result.listDetailVisible
-                this.setState({ detailsOpen: spot})
+                currentlyOpen.listDetailVisible = false
+                this.setState({ detailsOpen: spot })
             }
         })
         this.props.individualStateUpdate('currentlyShowing', searchResults)
+        //google.maps.event.trigger(markers[x], 'click')
+
     }
 
     render() {
@@ -37,16 +54,13 @@ class Sidebar extends Component {
                     changeSelection={this.props.changeSelection} />
                 <h2>Search Results</h2>
                 <ul>
-                    {this.props.currentlyShowing.map(spot => (
+                    {this.props.state.currentlyShowing.map(spot => (
                         <div key={spot.venueId} className="list-items">
-                            <a href="#/" onClick={() => this.toggleDiv(spot)}>
+                            <a href="#/" onClick={(e) => this.toggleDiv(spot, e)}>
                                 {spot.name ? spot.name : `Name unknown`}
                             </a>
                             {
                                 spot.listDetailVisible && <ListItems
-                                    key={spot.venueId}
-                                    state={this.props.state}
-                                    updateState={this.props.updateState}
                                     spot={spot} />
                             }
                         </div>

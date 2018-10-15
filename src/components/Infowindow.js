@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 // import PropTypes from 'propTypes'
 
+
+//TODO: change to function
 class Infowindow extends Component {
     render() {
-        const markerInfo = this.props.state
+        const selectedPlace = this.props.selectedPlace
         return (
             <div>
-                <h2>{markerInfo.selectedPlace.name}</h2>
+                <h2>{selectedPlace.name}</h2>
                 <div>
-                    <p>{markerInfo.location[0] && markerInfo.location[0].formattedAddress[0] ? markerInfo.location[0].formattedAddress[0] : ``}</p>
-                    <p>{markerInfo.location[0] && markerInfo.location[0].formattedAddress[1] ? markerInfo.location[0].formattedAddress[1] : ``}</p>
-                    <p>{markerInfo.selectedPlace.hours}</p>
-                    <p>Rating: {markerInfo.selectedPlace.rating}</p>
+                    <p>{selectedPlace.address && selectedPlace.address[0] && selectedPlace.address[0].formattedAddress[0] ? selectedPlace.address[0].formattedAddress[0] : ``}</p>
+                    <p>{selectedPlace.address && selectedPlace.address[0] && selectedPlace.address[0].formattedAddress[0] ? selectedPlace.address[0].formattedAddress[1] : ``}</p>
+                    <p>Hours: {selectedPlace.hours ? selectedPlace.hours : `Hours unknown`}</p>
+                    <p>Rating: {selectedPlace.rating ? selectedPlace.rating : `Not rated`}</p>
                 </div>
             </div>
 

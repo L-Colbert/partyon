@@ -2,13 +2,9 @@ import React, { Component } from 'react'
 import './css/App.css'
 import MapContainer from './components/MapContainer'
 import Sidebar from './components/Sidebar'
-import { strictEqual } from 'assert'
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
+import { GoogleApiWrapper } from 'google-maps-react'
 
 class App extends Component {
-  //   constructor(props){
-  //     super(props)
-  //   }
   state = {
     staticMap: [],
     defaultMapProps:
@@ -17,28 +13,59 @@ class App extends Component {
         { zoom: 10 }],
     nightSpots: [],
     currentlyShowing: [], //mutable is that ok
-    // bounds: []
     //code from https://www.npmjs.com/package/google-maps-react
     selectedPlace: {},
     activeMarker: {},
     showingInfoWindow: false,
-    location: []
+    markers: []
   }
 
-  individualStateUpdate = (key, value) => {
+  // createArrayOfMarkers = (array) => {
+  //   let markersArray = []
+  //   markersArray = array.map(spot => {
+  //     return new this.props.google.maps.Marker({
+  //       // position: new this.props.google.maps.LatLng(spot.lat, spot.lng),
+  //       position:{lat: spot.lat, lng: spot.lng},
+  //       map: this.props.google.map,
+  //       title: spot.name
+  //     })
+  //   })
+  //   this.setState({
+  //     markers: markersArray
+  //   }, () => {console.log(this.state.markers)})
+  // }
+
+  updateMarkers = (array) => {
+    this.setState({ markers: array })
+  }
+
+  closeInfoWindow = () => {
     this.setState({
-      key: value
+      activeMarker: null,
+      showingInfoWindow: false
     })
   }
 
+  individualStateUpdate = (key, value) => {
+    this.setState({ key: value })
+  }
+
+  //TODO: Consolidate the follwoing two ???
   updateState = (props, marker, e) => {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true,
-      location: props.address
+      // location: props.address
     })
   }
+
+  openInfoWindow = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    })
 
   loadStaticMap = () => {
     let key = `key=AIzaSyBR94Y6cJWdYrdIJ_LjSites5nBTwL9yhs`
@@ -103,27 +130,12 @@ class App extends Component {
         this.setState({ nightSpots: venueInfo, currentlyShowing: venueInfo })
         return venueInfo
       }).then(venueInfoArray => {
-        // let newBounds = this.getBounds(venueInfoArray)
         this.getSpotDetails(venueInfoArray)
-        // this.setState({ bounds: newBounds })
       })
       .catch(error => {
         console.log(`This is the problem: ${error}`)
       })
   }
-
-  // getBounds = (arrayWithCoordinates) => {
-  //   console.log(arrayWithCoordinates)
-  //   var bounds = new this.props.google.maps.LatLngBounds()
-  //   console.log(bounds)
-  //   arrayWithCoordinates.forEach(site => {
-  //     let lat = site.lat
-  //     let lng = site.lng
-  //     bounds.extend(new this.props.google.maps.LatLng(lat, lng))
-  //     console.log(bounds)
-  //   })
-  //   return bounds
-  // }
 
   getSpotDetails = (spotsArray) => {
     if (!spotsArray) {
@@ -171,10 +183,6 @@ class App extends Component {
   }
 
   render() {
-    // var bounds = new this.props.google.maps.LatLngBounds()
-    // for (var i = 0; i < this.state.nightSpots.length; i++) {
-    //   bounds.extend(new this.props.google.maps.LatLng(this.state.nightSpots.lat, this.state.nightSpots.lng))
-    // }
 
     return (
       <div className="App" >
@@ -187,18 +195,18 @@ class App extends Component {
           <Sidebar
             currentlyShowing={this.state.currentlyShowing}
             changeSelection={this.changeSelection}
+            individualStateUpdate={this.individualStateUpdate}
             state={this.state}
             updateState={this.updateState}
-            individualStateUpdate={this.individualStateUpdate}
           />
         </nav>
         <MapContainer
-          copyOfMapAtl={this.state.staticMap}
-          currentlyShowing={this.state.currentlyShowing}
-          defaultMapProps={this.state.defaultMapProps}
+          closeInfoWindow={this.closeInfoWindow}
+          // createArrayOfMarkers={this.createArrayOfMarkers}
+          individualStateUpdate={this.individualStateUpdate}
+          openInfoWindow={this.openInfoWindow}
+          updateMarkers={this.updateMarkers}
           state={this.state}
-          updateState={this.updateState}
-        // bounds={bounds}
         />
       </div >
     )
